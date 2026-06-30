@@ -1,2 +1,41 @@
-# smart-table-converter
-AI-powered table format converter - upload source data + target template/instructions, auto-generate column mapping rules and convert
+# 🔄 智能表格格式转换系统
+
+上传源数据表格 + 指定目标格式，AI自动生成列映射规则，预览确认后一键转换输出。
+
+## 功能
+
+- **三种目标格式指定方式**：自然语言指令 / 上传模板文件 / 保存的预设
+- **AI自动映射**：调用 DeepSeek API 自动识别源列与目标列的对应关系和转换规则
+- **预览确认**：映射对照表 + 转换后数据预览，确认后再导出
+- **丰富转换**：列名映射、日期格式转换、数字格式化、计算列、行过滤、排序
+- **预设管理**：保存常用映射规则，下次一键复用
+- **多格式输出**：Excel（带格式）/ CSV
+
+## 安装
+
+```bash
+pip install -r requirements.txt
+```
+
+## 运行
+
+```bash
+streamlit run app.py
+```
+
+## 使用流程
+
+1. 上传源数据文件（Excel/CSV）
+2. 选择目标格式来源：
+   - 📝 自然语言指令 — 描述目标列名和格式要求
+   - 📎 上传模板 — 自动读取模板列头
+   - 💾 使用预设 — 加载之前保存的映射规则
+3. AI生成映射规则（或手动编辑JSON）
+4. 预览映射对照表和转换结果
+5. 确认后下载 Excel / CSV
+
+## AI配置（可选）
+
+在侧边栏填入 DeepSeek API Key 即可启用AI自动映射，留空则需手动配置映射规则。
+
+也支持替换为其他兼容 OpenAI 格式的 API 接口。
